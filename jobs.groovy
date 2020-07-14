@@ -20,7 +20,7 @@ job("Devops_Task6_JOB2_Launching_WebServer")
 {
 	description("In this Job I Launch WebServer")
 	triggers {
-		upstream("Devops_Task6_JOB1","SUCCESS")
+		upstream("Devops_Task6_JOB1_GITHUB","SUCCESS")
 	}
 	steps {
 		shell("sh /Base_OS/Devops_Task6/job2.sh")
