@@ -7,9 +7,9 @@ then
 fi
 
     
-if sudo ls /Base_OS/task3/ | grep "index"
+if sudo ls /Base_OS/Devops_Task6/ | grep "index"
 then
-	file=$(sudo ls /Base_OS/task3/ | grep "index")
+	file=$(sudo ls /Base_OS/Devops_Task6/ | grep "index")
     extension=${file##*.}
     
     if [[ "$extension" == "html" ]]
@@ -18,14 +18,14 @@ then
         sudo kubectl run webserver --image=httpd
         sudo kubectl expose pod webserver --port=80 --type=NodePort
         sleep 60
-        sudo kubectl cp /Base_OS/task3/index."$extension" webserver:/usr/local/apache2/htdocs/
+        sudo kubectl cp /Base_OS/Devops_Task6/index."$extension" webserver:/usr/local/apache2/htdocs/
     elif [[ "$extension" == "php" ]]
     then 
     	echo "PHP file found"
         sudo kubectl run webserver --image=vimal13/apache-webserver-php
         sudo kubectl expose pod webserver --port=80 --type=NodePort
         sleep 60
-        sudo kubectl cp /Base_OS/task3/index."$extension" webserver:/var/www/html/
+        sudo kubectl cp /Base_OS/Devops_Task6/index."$extension" webserver:/var/www/html/
    	else
     	echo "Neither HTML nor PHP file found"
         exit 1
